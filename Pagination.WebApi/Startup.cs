@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Pagination.WebApi.Contexts;
 using Pagination.WebApi.Services;
 
@@ -38,7 +31,7 @@ namespace Pagination.WebApi
             {
                 var accessor = o.GetRequiredService<IHttpContextAccessor>();
                 var request = accessor.HttpContext.Request;
-                var uri = string.Concat(request.Scheme, "://" ,request.Host.ToUriComponent());
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
                 return new UriService(uri);
             });
             services.AddControllers();
