@@ -26,7 +26,8 @@ namespace Pagination.WebApi.Controllers
             this.context = context;
             this.uriService = uriService;
         }
-        [HttpGet]
+
+        
         public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
         {
             var route = Request.Path.Value;
